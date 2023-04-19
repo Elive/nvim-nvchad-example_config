@@ -12,9 +12,9 @@ M.ui = {
       --elive_molokai = {
           --base_16 = {
               --base00 = "#2d263c",  -- your desired background on the editor
-          --}
-      --}
-  --}
+          --},
+      --},
+  --},
 
 
   hl_override = highlights.override,
