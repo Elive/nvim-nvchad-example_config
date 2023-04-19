@@ -5,8 +5,17 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
-  theme = "onedark",
-  theme_toggle = { "onedark", "one_light" },
+  theme = "elive_molokai", -- your default theme
+  theme_toggle = { "elive_molokai", "one_light" }, -- your selected both dark and light themes
+
+  --changed_themes = {  -- overwrite theme / colorscheme values here:
+      --elive_molokai = {
+          --base_16 = {
+              --base00 = "#2d263c",  -- your desired background on the editor
+          --}
+      --}
+  --}
+
 
   hl_override = highlights.override,
   hl_add = highlights.add,
