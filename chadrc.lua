@@ -11,7 +11,7 @@ M.ui = {
   --changed_themes = {  -- overwrite theme / colorscheme values here:
       --elive_molokai = {
           --base_16 = {
-              --base00 = "#2d263c",  -- your desired background on the editor
+              --base00 = "#1c1726",  -- change your editor background to a one a little more purple-ish
           --},
       --},
   --},
