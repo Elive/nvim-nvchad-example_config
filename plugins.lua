@@ -40,7 +40,7 @@ local plugins = {
 
   -- -- Install your desired PHP LSP:
   -- -- PHPactor
-  -- -- Note: you must have at least php8 and the binary of phpactor installed (and define its location on the next lines)
+  -- -- Note: you must have at least php8, composer, and the binary of phpactor installed (and define its location on the next lines) - git clone https://github.com/phpactor/phpactor ; cd phpactor ; composer install ; sudo ln -s $(pwd)/bin/phpactor /usr/local/bin/
   -- {
   --   "gbprod/phpactor.nvim",
   --   requires = {
