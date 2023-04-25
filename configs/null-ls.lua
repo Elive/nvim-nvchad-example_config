@@ -17,6 +17,12 @@ local sources = {
 
   -- cpp
   b.formatting.clang_format,
+
+  -- Python formatting
+  -- b.autopep8.with { filetypes = { "python" } },
+
+  -- Go
+  -- b.gofmt.with { filetypes = { "go" } },
 }
 
 null_ls.setup {
