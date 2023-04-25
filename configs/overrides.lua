@@ -44,6 +44,21 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+  -- Note: to install new ones, run :MasonInstallAll
+
+    -- bash lsp
+    -- Instruction: requires to enable it also on custom/init.lua
+    -- "bash-language-server",
+    -- "shellcheck", -- note: it consumes some cpu
+    -- -- extras:
+    -- -- shellharden: apply suggested changes by shellcheck
+    -- -- "shellharden", -- depends on Cargo
+
+    -- -- python
+    -- "flake8",
+    -- "autopep8",
+    -- "isort",
   },
 }
 

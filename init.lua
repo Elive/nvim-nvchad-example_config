@@ -7,7 +7,6 @@
 -- })
 
 -- -- BASH LSP server:
--- Install:  sudo apt-get install spellcheck ; npm install bash-language-server
 -- vim.api.nvim_create_autocmd('FileType', {
 --   pattern = 'sh',
 --   callback = function()
