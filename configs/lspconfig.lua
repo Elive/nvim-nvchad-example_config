@@ -20,9 +20,42 @@ end
 --   on_attach = on_attach,
 --   settings = {
 --     intelephense = {
+--       -- Add wordpress to the list of stubs
+--       stubs = {
+--         "apache", "bcmath", "bz2", "calendar", "com_dotnet", "Core", "ctype", "curl", "date",
+--         "dba", "dom", "enchant", "exif", "FFI", "fileinfo", "filter", "fpm", "ftp", "gd", "gettext",
+--         "gmp", "hash", "iconv", "imap", "intl", "json", "ldap", "libxml", "mbstring", "meta", "mysqli",
+--         "oci8", "odbc", "openssl", "pcntl", "pcre", "PDO", "pdo_ibm", "pdo_mysql", "pdo_pgsql", "pdo_sqlite", "pgsql",
+--         "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
+--         "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
+--         "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
+--         "wordpress", "phpunit",
+--       },
+--       diagnostics = {
+--         enable = true,
+--       },
+--       Lua = {
+--         diagnostics = {
+--           globals = { "vim" }, -- Gets rid of "Global variable not found" error message
+--         },
+--       },
+--       json = {
+--         schemas = {
+--           {
+--             description = "NPM configuration file",
+--             fileMatch = {
+--               "package.json",
+--             },
+--             url = "https://json.schemastore.org/package.json",
+--           },
+--         },
+--       },
+--       files = {
+--         maxSize = 1000000;
+--       },
 --       environment = {
 --         includePaths = {
---           util.find_node_modules_ancestor(vim.fn.expand("%:p"))
+--           -- util.find_node_modules_ancestor(vim.fn.expand("%:p"))
 --           "~/WEBDEV/yourproject/",
 --           "~/WEBDEV/yourproject/Modules/",
 --           "~/WEBDEV/yourproject/packages/NSGI/Core/src/",
@@ -50,6 +83,13 @@ end
 --   },
 -- })
 
+-- -- De clutter the editor by only showing diagnostic messages when the cursor is over the error
+-- vim.diagnostic.config({
+--     virtual_text = false, -- Do not show the text in front of the error
+--     float = {
+--         border = "rounded",
+--     },
+-- })
 
 
 
