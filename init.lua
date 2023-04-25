@@ -12,7 +12,7 @@
 --   pattern = 'sh',
 --   callback = function()
 --     vim.lsp.start({
---       ensure_installed = { "bash-language-server" },
+--       --ensure_installed = { "bash-language-server" },
 --       name = 'bash-language-server',
 --       cmd = { 'bash-language-server', 'start' },
 --     })
