@@ -54,6 +54,9 @@ M.mason = {
     -- -- shellharden: apply suggested changes by shellcheck
     -- -- "shellharden", -- depends on Cargo
 
+    -- PHP
+    -- "intelephense",  -- depends: php version 8 or more, intelephense tool installed
+
     -- -- python
     -- "flake8",
     -- "autopep8",

@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 local servers = { "html", "cssls", "tsserver", "clangd", "bashls" }
--- local servers = { "html", "cssls", "tsserver", "clangd", "intelliphense", "volar" }  -- enable if you want to use intelliphense PHP lsp, and "volar" for JS/Vuejs
+-- local servers = { "html", "cssls", "tsserver", "clangd", "intelephense", "volar" }  -- enable if you want to use intelephense PHP lsp, and "volar" for JS/Vuejs
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -16,6 +16,8 @@ end
 
 
 -- -- PHP lsp: intelephense
+-- Install: dependencies: php8*, intelephense
+--
 -- require('lspconfig').intelephense.setup({
 --   on_attach = on_attach,
 --   settings = {
