@@ -23,6 +23,7 @@ end
 --     intelephense = {
 --       environment = {
 --         includePaths = {
+--           util.find_node_modules_ancestor(vim.fn.expand("%:p"))
 --           "~/WEBDEV/yourproject/",
 --           "~/WEBDEV/yourproject/Modules/",
 --           "~/WEBDEV/yourproject/packages/NSGI/Core/src/",
