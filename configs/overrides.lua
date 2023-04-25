@@ -5,7 +5,6 @@ M.treesitter = {
     "bash",
     "c",
     "css",
-    "css",
     "html",
     "javascript",
     "json5",
