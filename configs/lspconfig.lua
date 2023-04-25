@@ -18,8 +18,19 @@ end
 -- -- PHP lsp: intelephense
 -- Install: dependencies: php8*, intelephense
 --
+-- local util = require 'lspconfig.util'
+--
 -- require('lspconfig').intelephense.setup({
 --   on_attach = on_attach,
+--   cmd = { "~/.local/share/nvim/lsp_servers/php/node_modules/.bin/intelephense", "--stdio"};
+--   filetypes = {"php"};
+--   root_dir = function (pattern)
+--     local cwd  = vim.loop.cwd();
+--     local root = util.root_pattern("composer.json", ".git")(pattern);
+--
+--     -- prefer cwd if root is a descendant
+--     return util.path.is_descendant(cwd, root) and cwd or root;
+--   end;
 --   settings = {
 --     intelephense = {
 --       -- Add wordpress to the list of stubs
@@ -57,7 +68,7 @@ end
 --       },
 --       environment = {
 --         includePaths = {
---           -- util.find_node_modules_ancestor(vim.fn.expand("%:p"))
+--           util.find_node_modules_ancestor(vim.fn.expand("%:p"))
 --           "~/WEBDEV/yourproject/",
 --           "~/WEBDEV/yourproject/Modules/",
 --           "~/WEBDEV/yourproject/packages/NSGI/Core/src/",
@@ -68,7 +79,7 @@ end
 --   -- Set license key here, if you have
 --   -- licenceKey = '',  -- your license key, there's also a free version if you don't have
 -- })
-
+--
 -- -- Vue, Javascript, TypeScript
 -- require('lspconfig').volar.setup({
 --   -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
