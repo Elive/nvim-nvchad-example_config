@@ -4,8 +4,9 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
-local servers = { "html", "cssls", "tsserver", "clangd", "bashls" }
--- local servers = { "html", "cssls", "tsserver", "clangd", "intelephense", "volar" }  -- enable if you want to use intelephense PHP lsp, and "volar" for JS/Vuejs
+local servers = { "html", "cssls", "tsserver", "clangd", "bashls", "phpactor", }
+-- -- enable the LSPs you want to have, make sure to install them first from the :Mason panel
+-- local servers = { "html", "cssls", "tsserver", "clangd", "bashls", "intelephense", "volar" }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -22,7 +23,6 @@ end
 --
 -- require('lspconfig').intelephense.setup({
 --   on_attach = on_attach,
---   cmd = { "~/.local/share/nvim/lsp_servers/php/node_modules/.bin/intelephense", "--stdio"};
 --   filetypes = {"php"};
 --   root_dir = function (pattern)
 --     local cwd  = vim.loop.cwd();

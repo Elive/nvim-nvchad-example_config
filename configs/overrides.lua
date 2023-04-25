@@ -55,7 +55,9 @@ M.mason = {
     -- -- "shellharden", -- depends on Cargo
 
     -- PHP
-    -- "intelephense",  -- depends: php version 8 or more, intelephense tool installed
+    -- note: make sure you have php installed in at least version 8
+    "phpactor",
+    -- "intelephense",  -- closed source, requires a license (but you can use the free version)
 
     -- -- python
     -- "flake8",
