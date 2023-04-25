@@ -11,7 +11,6 @@ for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-
   }
 end
 
@@ -33,7 +32,6 @@ end
 --   },
 --   -- Set license key here, if you have
 --   -- licenceKey = '',  -- your license key, there's also a free version if you don't have
---   capabilities = capabilities,
 -- })
 
 -- -- Vue, Javascript, TypeScript
@@ -41,12 +39,10 @@ end
 --   -- Enable "Take Over Mode" where volar will provide all JS/TS LSP services
 --   -- This drastically improves the responsiveness of diagnostic updates on change
 --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json', },
---   capabilities = capabilities,
 -- })
 
 -- Vue, Javascript, TypeScript
 -- require('lspconfig').jsonls.setup({
---   capabilities = capabilities,
 --   settings = {
 --     json = {
 --       schemas = require('schemastore').json.schemas(),
