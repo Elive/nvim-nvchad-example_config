@@ -48,9 +48,8 @@ M.mason = {
   -- Note: to install new ones, run :MasonInstallAll
 
     -- bash lsp
-    -- Instruction: requires to enable it also on custom/init.lua
-    -- "bash-language-server",
-    -- "shellcheck", -- note: it consumes some cpu
+    "bash-language-server",
+    "shellcheck", -- note: it consumes some cpu
     -- -- extras:
     -- -- shellharden: apply suggested changes by shellcheck
     -- -- "shellharden", -- depends on Cargo
