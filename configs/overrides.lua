@@ -55,8 +55,8 @@ M.mason = {
     -- -- "shellharden", -- depends on Cargo
 
     -- PHP
-    -- note: make sure you have php installed in at least version 8
-    "phpactor",
+    -- note: make sure you have composer and php-8 or higher installed
+    -- "phpactor",
     -- "intelephense",  -- closed source, requires a license (but you can use the free version)
 
     -- -- python

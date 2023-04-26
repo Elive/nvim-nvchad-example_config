@@ -38,41 +38,6 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- -- Install your desired PHP LSP:
-  -- -- PHPactor
-  -- -- Note: you must have at least php8, composer, and the binary of phpactor installed (and define its location on the next lines) - git clone https://github.com/phpactor/phpactor ; cd phpactor ; composer install ; sudo ln -s $(pwd)/bin/phpactor /usr/local/bin/
-  -- {
-  --   "gbprod/phpactor.nvim",
-  --   requires = {
-  --     "nvim-lua/plenary.nvim", -- required to update phpactor
-  --     "neovim/nvim-lspconfig" -- required to automaticly register lsp serveur
-  --   },
-  --   ft = 'php',
-  --   config = function()
-  --     require("phpactor").setup({
-  --       -- your configuration comes here
-  --       -- or leave it empty to use the default settings
-  --       -- refer to the configuration section below
-  --       install = {
-  --         bin = "~/phpactor/bin/phpactor",
-  --       },
-  --     })
-  --   end
-  -- },
-  -- -- PHPactor (another plugin, without linting feature, better if you want to use togheter with installed)
-  -- {
-  --   'phpactor/phpactor',
-  --   branch = 'master',
-  --   ft = 'php',
-  --   config = function()
-  --     require("phpactor").setup({
-  --       install = {
-  --         bin = "~/phpactor/bin/phpactor",
-  --       },
-  --     })
-  --   end,
-  -- },
-
 
   -- Install a plugin
   --{
