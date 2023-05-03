@@ -9,6 +9,7 @@ M.override = {
   -- Comment = {
   --   italic = true,  -- put comments in italic mode
   -- },
+  -- CopilotSuggestion = { fg = "teal" }, -- change the color of the Copilot text
 }
 
 ---@type HLTable

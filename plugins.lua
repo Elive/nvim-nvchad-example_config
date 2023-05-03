@@ -38,8 +38,20 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  -- Overwrite CMP menu default behaviours, if you want to
+  -- nvim-cmp user overwrites (disable autocompletion, for example) {{{
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = {
+  --     completion = {
+  --       autocomplete = false, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
+  --     },
+  --   },
+  -- },
+  -- }}}
 
-  --[[ Copilot:
+
+  --[[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
   -- copilot.lua {{{
@@ -70,7 +82,8 @@ local plugins = {
           auto_trigger = true,
           debounce = 75,
           keymap = {
-            accept = "<M-l>",
+            -- accept = "<M-l>",
+            accept = "<C-j>",
             accept_word = false,
             accept_line = false,
             next = "<M-]>",
@@ -81,7 +94,8 @@ local plugins = {
         },
         filetypes = {
           yaml = false,
-          markdown = false,
+          markdown = true,
+          asciidoc = true,
           help = false,
           gitcommit = false,
           gitrebase = false,
@@ -91,7 +105,11 @@ local plugins = {
           javascript = true, -- allow specific filetype
           typescript = true, -- allow specific filetype
           ["."] = false,
+
+          -- Note: if you set all other filetypes to false to skip NeoVim features (plugins) contents to be parsed on Copilot, you can use this list:
           --["*"] = false, -- disable for all other filetypes and ignore default `filetypes`
+          -- asciidoc = true, automake = true, awk = true, bash = true, c = true, cfg = true, cmake = true, cpp = true, css = true, d = true, debcontrol = true, desktop = true, diff = true, doxygen = true, erlang = true, eruby = true, gitcommit = true, gitconfig = true, go = true, gtkrc = true, html = true, htmlchetah = true, htmldjango = true, htmlm4 = true, java = true, javacc = true, javascript = true, javascriptreact = true, js = true, json = true, lisp = true, lua = true, m4 = true, make = true, markdown = true, meson = true, msql = true, muttrc = true, mysql = true, neomuttrc = true, netrc = true, ninja = true, ocaml = true, perl = true, perl6 = true, php = true, phtml = true, plqsl = true, po = true, procmail = true, python = true, r = true, ruby = true, rust = true, samba = true, scala = true, scheme = true, sh = true, slang = true, splint = true, sysctl = true, systemd = true, tcl = true, tcsh = true, text = true, tmux = true, typescript = true, udevrules = true, valgrind = true, vim = true, vue = true, wdiff = true, xdefaults = true, xf86conf = true, xhtml = true, xml = true, xmodmap = true, xslt = true, yacc = true, yaml = true, zsh = true,
+
           sh = function ()
             if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), '^%.env.*') then
               -- disable for .env files
@@ -166,10 +184,19 @@ local plugins = {
           max_item_count = 3,
         },
       },
+    -- Hide copilot suggestion when cmp popup is open, Elivim: useful if you open it automatically with TAB but not when it shows all the time:
+      -- TODO: make it to be only enabled when the variable of 'opts.completion.autocomplete' is set to true:
+      --
+      -- require("cmp").event:on("menu_opened", function()
+      --   vim.b.copilot_suggestion_hidden = true
+      -- end),
+      -- require("cmp").event:on("menu_closed", function()
+      --   vim.b.copilot_suggestion_hidden = false
+      -- end),
     },
   },
   -- }}}
--- ]]
+  -- ]] Copilot
 
 
 
