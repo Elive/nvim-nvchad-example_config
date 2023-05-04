@@ -23,6 +23,10 @@ local sources = {
 
   -- Go
   -- b.gofmt.with { filetypes = { "go" } },
+
+  -- shell
+  -- b.formatting.shfmt,
+
 }
 
 null_ls.setup {

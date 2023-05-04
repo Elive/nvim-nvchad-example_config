@@ -10,6 +10,7 @@ M.general = {
 M.cmp = {
   plugin = true,
   [''] = {
+    -- Menu cmp
     ["<leader>tm"] = {
       "<cmd> lua require('cmp').setup.buffer { enabled = true }<CR>",
       "Menu suggestions (cmp) enable",
@@ -18,15 +19,7 @@ M.cmp = {
       "<cmd> lua require('cmp').setup.buffer { enabled = false }<CR>",
       "Menu suggestions (cmp) disable",
     },
-  },
-}
-
-
-M.copilot = {
-  plugin = true,
-
-  [''] = {
-    -- toggles
+    -- Copilot
     ["<leader>tc"] = {
       "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<CR><cmd>Copilot status<CR>",
       "Copilot toggle suggestions",
@@ -34,9 +27,8 @@ M.copilot = {
     ["<leader>tC"] = {
       "<cmd>Copilot disable<CR>",
       "Copilot disable",
-      { silent = true },
     },
-
+    -- toggles
     -- multiple copilot options, autosuggests / enable / disable, but normally with the previous one we should have enough
     -- ["<leader>tcs"] = {
     --   "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<CR><cmd>Copilot status<CR>",
@@ -53,8 +45,17 @@ M.copilot = {
     --   "toggle Copilot (enable)",
     --   { silent = true },
     -- -- },
+
   },
 }
+
+-- M.copilot = {
+--   plugin = true,
+--
+--   [''] = {
+--   },
+-- }
+
 
 -- more keybinds!
 

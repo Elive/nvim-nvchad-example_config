@@ -5,6 +5,8 @@ local plugins = {
 
   -- Override plugin definition options
 
+  -- Null-ls is a plugin that allows neovim to act as a language server client without the need for a language server. It can complement extra features for languages like formatting, linting, and more.
+  -- you may probably don't need this if you don't know how to use it
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -20,6 +22,10 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
+    -- this solves a bug where gives warning messages: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428 , especially when using with copilot
+    on_init = function(new_client, _)
+      new_client.offset_encoding = 'utf-32'
+    end,
   },
 
   -- override plugin configs
@@ -52,14 +58,13 @@ local plugins = {
   -- }}}
 
 
-  --[[ Copilot
+  -- [[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
   -- copilot.lua {{{
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    lazy = false,   -- HACK in order to show up the hotkeys correctly, this priorizes the loading before which-key
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
@@ -132,7 +137,8 @@ local plugins = {
         },
       })
       -- load special mappings that also shows up on which-key
-      require("core.utils").load_mappings "copilot"
+      -- require("core.utils").load_mappings "copilot" -- don't use this one, move the keymaps to another file which is lazy-loaded before otherwise we will not have them showing up, "cmp" is a good option because it was loaded (originally) before which-key
+      require("core.utils").load_mappings "cmp"
     end,
   },
 
