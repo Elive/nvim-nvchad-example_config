@@ -46,6 +46,7 @@ local plugins = {
   --     completion = {
   --       autocomplete = false, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
   --     },
+        -- require("core.utils").load_mappings "cmp"
   --   },
   -- },
   -- }}}
@@ -58,6 +59,7 @@ local plugins = {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    lazy = false,   -- HACK in order to show up the hotkeys correctly, this priorizes the loading before which-key
     event = "InsertEnter",
     config = function()
       require("copilot").setup({
@@ -129,8 +131,12 @@ local plugins = {
           },
         },
       })
+      -- load special mappings that also shows up on which-key
+      require("core.utils").load_mappings "copilot"
     end,
   },
+
+
   -- }}}
   -- copilot-cmp (integrated in cmp menu) {{{
   {
@@ -148,6 +154,8 @@ local plugins = {
       })
     end
   },
+
+
   -- }}}
   -- nvim-cmp (main conf needs overwrite special settings for copilot) {{{
   {
@@ -184,6 +192,8 @@ local plugins = {
           max_item_count = 3,
         },
       },
+      -- load special mappings that also shows up on which-key
+      require("core.utils").load_mappings "cmp"
     -- Hide copilot suggestion when cmp popup is open, Elivim: useful if you open it automatically with TAB but not when it shows all the time:
       -- TODO: make it to be only enabled when the variable of 'opts.completion.autocomplete' is set to true:
       --
