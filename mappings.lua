@@ -19,6 +19,12 @@ M.cmp = {
       "<cmd> lua require('cmp').setup.buffer { enabled = false }<CR>",
       "Menu suggestions (cmp) disable",
     },
+  },
+}
+
+M.copilot = {
+    plugin = true,
+  [''] = {
     -- Copilot
     ["<leader>tc"] = {
       "<cmd> lua require('copilot.suggestion').toggle_auto_trigger()<CR><cmd>Copilot status<CR>",
@@ -45,17 +51,8 @@ M.cmp = {
     --   "toggle Copilot (enable)",
     --   { silent = true },
     -- -- },
-
   },
 }
-
--- M.copilot = {
---   plugin = true,
---
---   [''] = {
---   },
--- }
-
 
 -- more keybinds!
 

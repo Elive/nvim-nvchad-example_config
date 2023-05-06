@@ -24,7 +24,7 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
     -- this solves a bug where gives warning messages: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428 , especially when using with copilot
     on_init = function(new_client, _)
-      new_client.offset_encoding = 'utf-32'
+      new_client.offset_encoding = 'utf-32'  -- this fixes a bug about the offset encoding, there's another reference to possibly this issue:  https://www.lazyvim.org/configuration/recipes#fix-clangd-offset-encoding
     end,
   },
 
@@ -57,7 +57,6 @@ local plugins = {
   -- },
   -- }}}
 
-
   -- [[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
@@ -65,7 +64,12 @@ local plugins = {
   {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
+    build = ":Copilot auth",
     event = "InsertEnter",
+    init = function()
+      -- load special mappings that also shows up on which-key
+      require("core.utils").load_mappings "copilot"
+    end,
     config = function()
       require("copilot").setup({
         panel = {
@@ -136,9 +140,6 @@ local plugins = {
           },
         },
       })
-      -- load special mappings that also shows up on which-key
-      -- require("core.utils").load_mappings "copilot" -- don't use this one, move the keymaps to another file which is lazy-loaded before otherwise we will not have them showing up, "cmp" is a good option because it was loaded (originally) before which-key
-      require("core.utils").load_mappings "cmp"
     end,
   },
 
@@ -174,6 +175,10 @@ local plugins = {
         end,
       },
     },
+    init = function()
+      -- load special mappings that also shows up on which-key
+      require("core.utils").load_mappings "cmp"
+    end,
     opts = {
       completion = {
         -- autocomplete = false, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
@@ -198,8 +203,6 @@ local plugins = {
           max_item_count = 3,
         },
       },
-      -- load special mappings that also shows up on which-key
-      require("core.utils").load_mappings "cmp"
     -- Hide copilot suggestion when cmp popup is open, Elivim: useful if you open it automatically with TAB but not when it shows all the time:
       -- TODO: make it to be only enabled when the variable of 'opts.completion.autocomplete' is set to true:
       --
@@ -212,7 +215,7 @@ local plugins = {
     },
   },
   -- }}}
-  -- ]] Copilot
+--]] -- Copilot
 
 
 
