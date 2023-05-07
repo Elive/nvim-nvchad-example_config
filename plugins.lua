@@ -57,7 +57,7 @@ local plugins = {
   -- },
   -- }}}
 
-  -- [[ Copilot
+  --[[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
   -- copilot.lua {{{
