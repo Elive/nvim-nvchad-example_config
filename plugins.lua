@@ -202,6 +202,7 @@ local plugins = {
           priority = 800,
           max_item_count = 3,
         },
+        { name = 'nvim_lsp_signature_help', priority = 700, max_item_count = 3, },
       },
     -- Hide copilot suggestion when cmp popup is open, Elivim: useful if you open it automatically with TAB but not when it shows all the time:
       -- TODO: make it to be only enabled when the variable of 'opts.completion.autocomplete' is set to true:
