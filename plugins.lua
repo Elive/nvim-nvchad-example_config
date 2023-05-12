@@ -24,7 +24,7 @@ local plugins = {
     end, -- Override to setup mason-lspconfig
     -- this solves a bug where gives warning messages: https://github.com/jose-elias-alvarez/null-ls.nvim/issues/428 , especially when using with copilot
     on_init = function(new_client, _)
-      new_client.offset_encoding = 'utf-32'  -- this fixes a bug about the offset encoding, there's another reference to possibly this issue:  https://www.lazyvim.org/configuration/recipes#fix-clangd-offset-encoding
+      new_client.offset_encoding = 'utf-16'  -- this fixes a bug about the offset encoding, there's another reference to possibly this issue:  https://www.lazyvim.org/configuration/recipes#fix-clangd-offset-encoding
     end,
   },
 

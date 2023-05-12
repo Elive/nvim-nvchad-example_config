@@ -34,19 +34,20 @@ M.copilot = {
       "<cmd>Copilot disable<CR>",
       "Copilot disable",
     },
-    ["<A-]>"] = {
-      "<Nop>",
-      "Copilot suggestion next",
-    },
-    ["<A-[>"] = {
-      "<Nop>",
-      "Copilot suggestion prev",
-    },
-    ["<C-y>"] = {
-      "<Nop>",
-      "Copilot accept",
-    },
-    -- ["<C-e>"] = {  -- do not enable this one or it will make c-e not working
+    -- -- do not enable this one or it will make c-e not working
+    -- ["<A-]>"] = {
+    --   "<Nop>",
+    --   "Copilot suggestion next",
+    -- },
+    -- ["<A-[>"] = {
+    --   "<Nop>",
+    --   "Copilot suggestion prev",
+    -- },
+    -- ["<C-y>"] = {
+    --   "<Nop>",
+    --   "Copilot accept",
+    -- },
+    -- ["<C-e>"] = {
     --   "<Nop>",
     --   "Copilot cancel",
     -- },
