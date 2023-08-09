@@ -7,21 +7,6 @@ M.general = {
   },
 }
 
-M.cmp = {
-  plugin = true,
-  [''] = {
-    -- Menu cmp
-    ["<leader>tm"] = {
-      "<cmd> lua require('cmp').setup.buffer { enabled = true }<CR>",
-      "Menu suggestions (cmp) enable",
-    },
-    ["<leader>tM"] = {
-      "<cmd> lua require('cmp').setup.buffer { enabled = false }<CR>",
-      "Menu suggestions (cmp) disable",
-    },
-  },
-}
-
 M.copilot = {
     plugin = true,
   [''] = {

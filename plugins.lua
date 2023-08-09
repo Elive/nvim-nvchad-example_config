@@ -190,7 +190,7 @@ local plugins = {
         {
           name = "buffer",
           priority = 1000,
-          max_item_count = 5,  -- show a maximum of 2 result for "buffer" items
+          max_item_count = 6,  -- show a maximum of X result for "buffer" items
           option = {
             get_bufnrs = function() return vim.api.nvim_list_bufs() end,
           },
@@ -202,7 +202,7 @@ local plugins = {
           priority = 800,
           max_item_count = 3,
         },
-        { name = 'nvim_lsp_signature_help', priority = 700, max_item_count = 3, },
+        -- { name = 'nvim_lsp_signature_help', priority = 700, max_item_count = 3, },
       },
     -- Hide copilot suggestion when cmp popup is open, Elivim: useful if you open it automatically with TAB but not when it shows all the time:
       -- TODO: make it to be only enabled when the variable of 'opts.completion.autocomplete' is set to true:
@@ -218,6 +218,53 @@ local plugins = {
   -- }}}
 --]] -- Copilot
 
+
+  -- Other copilot related stuff
+  -- Copilot official plugin (not lua) {{{
+  --[[
+   {
+     "github/copilot.vim",
+     cmd = "Copilot",
+     init = function()
+       require("core.utils").lazy_load "copilot.vim"
+     end,
+   },
+  --]]
+  -- }}}
+  
+  -- ChatGPT
+  --[[
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    },
+    opts = function()
+      return require "custom.configs.chatgpt"
+    end,
+    config = function(_, opts)
+      require("chatgpt").setup(opts)
+    end,
+  },
+  --]]
+  --[[
+      Usage: 
+        <C-Enter> [Both] to submit.
+        <C-y> [Both] to copy/yank last answer.
+        <C-o> [Both] Toggle settings window.
+        <Tab> [Both] Cycle over windows.
+        <C-m> [Chat] Cycle over modes (center, stick to right).
+        <C-c> [Chat] to close chat window.
+        <C-u> [Chat] scroll up chat window.
+        <C-d> [Chat] scroll down chat window.
+        <C-k> [Chat] to copy/yank code from last answer.
+        <C-n> [Chat] Start new session.
+        <C-i> [Edit Window] use response as input.
+        <C-d> [Edit Window] view the diff between left and right panes and use diff-mode commands
+    --]]
 
 
   -- --
