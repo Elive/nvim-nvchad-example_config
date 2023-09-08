@@ -232,8 +232,7 @@ local plugins = {
   --]]
   -- }}}
   
-  -- ChatGPT
-  --[[
+  --[[ ChatGPT
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
@@ -252,7 +251,7 @@ local plugins = {
   --]]
   --[[
       Usage: 
-        <C-Enter> [Both] to submit.
+        <C-u> [Both] to submit.
         <C-y> [Both] to copy/yank last answer.
         <C-o> [Both] Toggle settings window.
         <Tab> [Both] Cycle over windows.
