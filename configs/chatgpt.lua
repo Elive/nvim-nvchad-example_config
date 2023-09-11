@@ -148,6 +148,8 @@ local options = {
   -- use_openai_functions_for_edits = false,
   -- actions_paths = {},
   -- show_quickfixes_cmd = "Trouble quickfix",
+  -- NOTE: if you have an own list of favorited or improved prompts you can change the next parameter:
+  --
   -- predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
   -- },
 }

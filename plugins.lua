@@ -135,7 +135,7 @@ local plugins = {
           settings = {
             advanced = {
               listCount = 6, -- #completions for panel
-              inlineSuggestCount = 5, -- #completions for getCompletions
+              inlineSuggestCount = 12, -- #completions for getCompletions
             }
           },
         },
