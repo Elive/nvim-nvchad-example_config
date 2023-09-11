@@ -200,7 +200,7 @@ local plugins = {
         {
           name = "copilot", -- show up the copilot entry
           priority = 800,
-          max_item_count = 3,
+          max_item_count = 5,
         },
         -- { name = 'nvim_lsp_signature_help', priority = 700, max_item_count = 3, },
       },
@@ -246,6 +246,7 @@ local plugins = {
     end,
     config = function(_, opts)
       require("chatgpt").setup(opts)
+      require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
     end,
   },
   --]]
