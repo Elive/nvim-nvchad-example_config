@@ -49,7 +49,7 @@ M.mason = {
 
     -- bash lsp
     "bash-language-server",
-    -- "shellcheck", -- note: it consumes some cpu
+    "shellcheck", -- note: it consumes some cpu
     -- -- extras:
     -- -- shellharden: apply suggested changes by shellcheck
     -- -- "shellharden", -- depends on Cargo
