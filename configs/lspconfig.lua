@@ -22,7 +22,6 @@ end
 -- Install: dependencies: php8*, intelephense
 --
 -- local util = require 'lspconfig.util'
---
 -- require('lspconfig').intelephense.setup({
 --   on_attach = on_attach,
 --   filetypes = {"php"};
@@ -44,7 +43,7 @@ end
 --         "Phar", "posix", "pspell", "readline", "Reflection", "session", "shmop", "SimpleXML", "snmp", "soap",
 --         "sockets", "sodium", "SPL", "sqlite3", "standard", "superglobals", "sysvmsg", "sysvsem", "sysvshm", "tidy",
 --         "tokenizer", "xml", "xmlreader", "xmlrpc", "xmlwriter", "xsl", "Zend OPcache", "zip", "zlib",
---         "wordpress", "phpunit",
+--         "wordpress", "wordpress-globals", "wp-cli", "woocommerce", "phpunit",
 --       },
 --       diagnostics = {
 --         enable = true,
@@ -70,16 +69,16 @@ end
 --       },
 --       environment = {
 --         includePaths = {
---           util.find_node_modules_ancestor(vim.fn.expand("%:p"))
 --           "~/WEBDEV/yourproject/",
 --           "~/WEBDEV/yourproject/Modules/",
 --           "~/WEBDEV/yourproject/packages/NSGI/Core/src/",
+--           util.find_node_modules_ancestor(vim.fn.expand("%:p"))
 --         }
 --       }
 --     }
 --   },
 --   -- Set license key here, if you have
---   -- licenceKey = '',  -- your license key, there's also a free version if you don't have
+--   licenseKey = "~/.config/intelephense-license.key", -- your license key, there's also a free version if you don't have
 -- })
 --
 -- -- Vue, Javascript, TypeScript

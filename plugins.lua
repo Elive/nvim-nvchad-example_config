@@ -44,19 +44,6 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
-  -- Overwrite CMP menu default behaviours, if you want to
-  -- nvim-cmp user overwrites (disable autocompletion, for example) {{{
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   opts = {
-  --     completion = {
-  --       autocomplete = false, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
-  --     },
-        -- require("core.utils").load_mappings "cmp"
-  --   },
-  -- },
-  -- }}}
-
   --[[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
@@ -216,10 +203,8 @@ local plugins = {
     },
   },
   -- }}}
---]] -- Copilot
 
-
-  -- Other copilot related stuff
+  -- Other copilot related stuff, do not enable these {{{
   -- Copilot official plugin (not lua) {{{
   --[[
    {
@@ -231,7 +216,10 @@ local plugins = {
    },
   --]]
   -- }}}
+  -- }}}
+--]] -- Copilot
   
+  -- ChatGPT {{{
   --[[ ChatGPT
   {
     "jackMort/ChatGPT.nvim",
@@ -266,6 +254,41 @@ local plugins = {
         <C-d> [Edit Window] view the diff between left and right panes and use diff-mode commands
     --]]
 
+    -- }}}
+
+  -- Overwrite CMP menu default behaviours, if you want to
+  -- nvim-cmp user overwrites (disable autocompletion, for example) {{{
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   enabled = true,  -- turn to false to disable it entirely
+  --   opts = {
+  --     completion = {
+  --       autocomplete = true, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
+  --     },
+  --       require("core.utils").load_mappings "cmp"
+  --   },
+  -- },
+  -- }}}
+
+  -- UltiSnips snippets system {{{
+  -- NOTE: requires "python3-neovim" and the python3 provider not disabled
+  --
+  -- {
+  --   "SirVer/ultisnips",
+  --   init = function()
+  --     require("core.utils").lazy_load "ultisnips"
+  --     -- require("core.utils").load_mappings "ultisnips"
+  --     vim.g.UltiSnipsEditSplit = "horizontal"
+  --     vim.g.UltiSnipsExpandTrigger = "<c-j>" -- expand snippets using this hotkey
+  --     vim.g.UltiSnipsJumpForwardTrigger = "<c-j>"
+  --     vim.g.UltiSnipsJumpBackwardTrigger = "<c-k>"  -- backwards jumps
+  --     vim.g.UltiSnipsListSnippets = "<c-l>"  -- list available snippets for keyword
+  --     -- set the path for your ultisnip snippets
+  --     local ultisnips_snippets = vim.fn.expand('$HOME/.vim/UltiSnips')  -- location of your snippets
+  --     vim.g.UltiSnipsSnippetDirectories = { ultisnips_snippets, "UltiSnips" }
+  --   end,
+  -- },
+  -- }}}
 
   -- --
   -- Suggested plugins:
