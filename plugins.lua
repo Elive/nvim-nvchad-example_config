@@ -151,6 +151,58 @@ local plugins = {
     end
   },
 
+  -- }}}
+  -- nvim-cmp with Codeium AI {{{
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   event = "InsertEnter",
+  --   init = function()
+  --     -- load special mappings that also shows up on which-key
+  --     require("core.utils").load_mappings "cmp"
+  --   end,
+  --   dependencies = {
+  --     {
+  --       -- snippet plugin
+  --       "L3MON4D3/LuaSnip",
+  --       dependencies = "rafamadriz/friendly-snippets",
+  --       opts = { history = true, updateevents = "TextChanged,TextChangedI" },
+  --       config = function(_, opts)
+  --         require("plugins.configs.others").luasnip(opts)
+  --       end,
+  --     },
+  --     -- codeium configuration:
+  --     {
+  --       "Exafunction/codeium.nvim",
+  --       -- TODO: it can autocomplete like Copilot, cmp needs to be configured for that: https://github.com/Exafunction/codeium.vim
+  --          build = ":Codeium Auth",
+  --       dependencies = {
+  --         "nvim-lua/plenary.nvim",
+  --         -- "hrsh7th/nvim-cmp",
+  --       },
+  --       config = function()
+  --         require("codeium").setup({
+  --         })
+  --       end
+  --     },
+  --     -- cmp sources plugins
+  --     {
+  --       "saadparwaiz1/cmp_luasnip",
+  --       "hrsh7th/cmp-nvim-lua",
+  --       "hrsh7th/cmp-nvim-lsp",
+  --       "hrsh7th/cmp-buffer",
+  --       "hrsh7th/cmp-path",
+  --     },
+  --   },
+  --
+  --   opts = function()
+  --     return require "plugins.configs.cmp"
+  --     -- TODO: add to "sources" entry:
+  --     -- { name = "codeium" },
+  --   end,
+  --   config = function(_, opts)
+  --     require("cmp").setup(opts)
+  --   end,
+  -- },
 
   -- }}}
   -- nvim-cmp with TabNine code AI {{{
