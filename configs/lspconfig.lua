@@ -5,7 +5,7 @@ local lspconfig = require "lspconfig"
 
 -- if you just want default config for the servers then put them in a table
 -- local servers = { "html", "cssls", "tsserver", "clangd", }
-local servers = { "html", "cssls", "tsserver", "clangd", "bashls", }
+local servers = { "html", "cssls", "ts_ls", "clangd", "bashls", }
 -- -- enable the LSPs you want to have, make sure to install them first from the :Mason panel
 -- local servers = { "html", "cssls", "tsserver", "clangd", "bashls", "intelephense", "volar" }
 -- Note: lua_ls is shipped by default and configured form  'plugins/configs/lspconfig.lua'
