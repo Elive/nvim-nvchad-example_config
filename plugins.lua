@@ -345,6 +345,80 @@ local plugins = {
   -- }}}
 --]] -- Copilot
   
+  -- Avante {{{
+  -- [[ Avante
+  --{
+    --"yetone/avante.nvim",
+    ---- lazy = false,
+    --event = "VeryLazy",
+    ---- set this if you want to always pull the latest change
+    --version = false,
+    --opts = function()
+      --return require "custom.configs.avante"
+    --end,
+    --config = function(_, opts)
+      --require("avante").setup(opts)
+      ---- require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    --end,
+    ---- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    --build = "make",
+    ---- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    --dependencies = {
+      --"nvim-treesitter/nvim-treesitter",
+      --"stevearc/dressing.nvim",
+      --"nvim-lua/plenary.nvim",
+      --"MunifTanjim/nui.nvim",
+      ----- The below dependencies are optional,
+      --"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      --"zbirenbaum/copilot.lua", -- for providers='copilot'
+      --{
+        ---- support for image pasting
+        --"HakonHarnes/img-clip.nvim",
+        --event = "VeryLazy",
+        --opts = {
+          ---- recommended settings
+          --default = {
+            --embed_image_as_base64 = false,
+            --prompt_for_file_name = false,
+            --drag_and_drop = {
+              --insert_mode = true,
+            --},
+            ---- required for Windows users
+            --use_absolute_path = true,
+          --},
+        --},
+      --},
+      --{
+        ---- Make sure to set this up properly if you have lazy=true
+        --'MeanderingProgrammer/render-markdown.nvim',
+        --opts = {
+          --file_types = { "markdown", "Avante" },
+        --},
+        --ft = { "markdown", "Avante" },
+      --},
+    --},
+  --},
+  --]]
+  --[[
+      Usage:
+      Key BindingDescription
+      Leader aa show sidebar
+      Leader ar refresh sidebar
+      Leader af switch sidebar focus
+      Leader ae edit selected blocks
+      co choose ours
+      ct choose theirs
+      ca choose all theirs
+      c0 choose none
+      cb choose both
+      cc choose cursor
+      ]x move to previous conflict
+      [x movemove to next conflict
+      [[ conflictjump to previous codeblocks (results window)
+      ] ] windowjump to next codeblocks (results windows)
+    --]]
+
+    -- }}}
   -- ChatGPT {{{
   --[[ ChatGPT
   {
