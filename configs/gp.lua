@@ -19,13 +19,13 @@ return {
         ---- secret = { "bw", "get", "password", "OPENAI_API_KEY" },
         ---- secret : "sk-...",
         ---- secret = os.getenv("env_name.."),
-        --openai = {
-            --disable = false,
+        openai = {
+            disable = false,
             --endpoint = "https://api.openai.com/v1/chat/completions",
             --secret = os.getenv("OPENAI_API_KEY"),
-        --},
+        },
         --azure = {
-            --disable = true,
+            --disable = false,
             --endpoint = "https://$URL.openai.azure.com/openai/deployments/{{model}}/chat/completions",
             --secret = os.getenv("AZURE_API_KEY"),
         --},
@@ -39,30 +39,36 @@ return {
             --},
         --},
         --ollama = {
-            --disable = true,
+            --disable = false,
             --endpoint = "http://localhost:11434/v1/chat/completions",
             --secret = "dummy_secret",
         --},
         --lmstudio = {
-            --disable = true,
+            --disable = false,
             --endpoint = "http://localhost:1234/v1/chat/completions",
             --secret = "dummy_secret",
         --},
-        --googleai = {
-            --disable = true,
+        googleai = {
+            disable = false,
             --endpoint = "https://generativelanguage.googleapis.com/v1beta/models/{{model}}:streamGenerateContent?key={{secret}}",
             --secret = os.getenv("GOOGLEAI_API_KEY"),
-        --},
+        },
         --pplx = {
-            --disable = true,
+            --disable = false,
             --endpoint = "https://api.perplexity.ai/chat/completions",
             --secret = os.getenv("PPLX_API_KEY"),
         --},
-        --anthropic = {
-            --disable = true,
+        anthropic = {
+            disable = false,
             --endpoint = "https://api.anthropic.com/v1/messages",
             --secret = os.getenv("ANTHROPIC_API_KEY"),
-        --},
+        },
+        -- groq = {
+        --     disable = false,
+        --     endpoint = "https://api.groq.com/openai/v1/chat/completions",
+        --     secret = os.getenv("GROQ_API_KEY"),
+        -- },
+
     },
 
     ---- prefix for all commands
@@ -273,7 +279,27 @@ return {
             ---- system prompt (use this to specify the persona/role of the AI)
             --system_prompt = require("gp.defaults").code_system_prompt,
         --},
-    --},
+    --       {
+    --         provider = "groq",
+    --         name = "GroqLLAMA_3.1-70b-versatile",
+    --         chat = true,
+    --         command = true,
+    --         -- string with model name or table with model name and parameters
+    --         model = { model = "llama-3.1-70b-versatile", temperature = 0.8, top_p = 1 },
+    --         system_prompt = "You are an AI helping the user with code and other tasks\n\n"
+    --           .. "Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n",
+    --       },
+    --       {
+    --         provider = "groq",
+    --         name = "GroqLLAMA_3.2-11b-text-preview",
+    --         chat = true,
+    --         command = true,
+    --         -- string with model name or table with model name and parameters
+    --         model = { model = "llama-3.2-11b-text-preview", temperature = 0.8, top_p = 1 },
+    --         system_prompt = "Given a task or problem, please provide a concise and well-formatted solution or answer.\n\n"
+    --           .. "Please keep your response within a code snippet, and avoid unnecessary commentary.\n",
+    --       },
+    -- },
 
     -- directory for storing chat files
     --chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
@@ -372,6 +398,7 @@ return {
 
         ---- OpenAI audio/transcriptions api endpoint to transcribe audio to text
         --endpoint = "https://api.openai.com/v1/audio/transcriptions",
+        -- endpoint = "https://api.groq.com/openai/v1/audio/transcriptions",
         ---- directory for storing whisper files
         --store_dir = (os.getenv("TMPDIR") or os.getenv("TEMP") or "/tmp") .. "/gp_whisper",
         ---- multiplier of RMS level dB for threshold used by sox to detect silence vs speech
