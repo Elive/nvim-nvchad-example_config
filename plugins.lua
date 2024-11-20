@@ -44,6 +44,35 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  -- SuperMaven (copilot faster, good quality and cheaper alternative) {{{
+   -- [[ SuperMaven
+   --{
+    --"supermaven-inc/supermaven-nvim",
+    --event = "VeryLazy",
+    --config = function()
+       --require("supermaven-nvim").setup({
+           --keymaps = {
+               --accept_suggestion = "<C-y>",
+               --clear_suggestion = "<C-e>",
+               --accept_word = "<C-l>",
+           --},
+           ----ignore_filetypes = { "cpp", },
+           ----color = {
+               ----suggestion_color = "#ffffff",
+               ----cterm = 244,
+           ----},
+           ----log_level = "info", -- set to "off" to disable logging completely
+           ----disable_inline_completion = false, -- disables inline completion for use with cmp
+           ----disable_keymaps = false, -- disables built in keymaps for more manual control
+           ----condition = function()
+               ----return false
+           ----end -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
+       --})
+    --end,
+   --},
+  --]]
+
+    -- }}}
   --[[ Copilot
   -- uncomment the entire commented block if you want to enable Copilot
   -- TIP: search for the "elivim" keywords to see special settings, like disabling the automatic showing up of the CMP autocompletion menu that is obtrusive with the copilot results
