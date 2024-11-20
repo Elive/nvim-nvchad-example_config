@@ -13,6 +13,7 @@ M.treesitter = {
     "markdown_inline",
     "perl",
     "php",
+    "regex",
     "ruby",
     "scss",
     "tsx",
