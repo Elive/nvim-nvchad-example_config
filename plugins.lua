@@ -345,6 +345,49 @@ local plugins = {
   -- }}}
 --]] -- Copilot
   
+  -- Parrot {{{
+  -- [[ Parrot
+  --{
+    --"frankroeder/parrot.nvim",
+    --dependencies = {
+      --"ibhagwan/fzf-lua",
+      --"nvim-lua/plenary.nvim"
+    --},
+    ---- lazy = false,
+    --event = "VeryLazy",
+    ---- set this if you want to always pull the latest change
+    --version = false,
+    --config = function()
+        --require("parrot").setup {
+            --providers = {
+                --anthropic = { api_key = os.getenv "ANTHROPIC_API_KEY" },
+                --gemini = { api_key = os.getenv "GEMINI_API_KEY" },
+                --groq = { api_key = os.getenv "GROQ_API_KEY" },
+                --mistral = { api_key = os.getenv "MISTRAL_API_KEY" },
+                --pplx = { api_key = os.getenv "PERPLEXITY_API_KEY" },
+                --ollama = {},  -- Empty provider, no API key required
+                --openai = { api_key = os.getenv "OPENAI_API_KEY" },
+                --github = { api_key = os.getenv "GITHUB_TOKEN" },
+                --nvidia = { api_key = os.getenv "NVIDIA_API_KEY" },
+                --xai = { api_key = os.getenv "XAI_API_KEY" },
+            --},
+        --}
+    --end,
+    ----opts = {}
+    ----config = function()
+        ----require("parrot").setup()
+    ----end,
+    ----opts = function()
+      ----return require "custom.configs.avante"
+    ----end,
+    ----config = function(_, opts)
+      ----require("avante").setup(opts)
+      ------ require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    ----end,
+  --},
+  --]]
+
+    -- }}}
   -- Avante {{{
   -- [[ Avante
   --{
