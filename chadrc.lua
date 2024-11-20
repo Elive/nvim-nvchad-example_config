@@ -6,7 +6,7 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   theme = "elive_molokai", -- your default theme
-  theme_toggle = { "elive_molokai", "one_light" }, -- your selected both dark and light themes
+  theme_toggle = { "elive_molokai", "elive_retrowave" }, -- your selected both dark and light themes
   -- transparency = true,  -- make the editor transparent
 
   --changed_themes = {  -- overwrite theme / colorscheme values here:

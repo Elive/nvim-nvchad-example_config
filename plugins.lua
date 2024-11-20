@@ -48,7 +48,7 @@ local plugins = {
    --[[ SuperMaven
    {
     "supermaven-inc/supermaven-nvim",
-    event = "VeryLazy",
+    event = "InsertEnter",
     config = function()
        require("supermaven-nvim").setup({
            keymaps = {
