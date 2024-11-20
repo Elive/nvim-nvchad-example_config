@@ -45,31 +45,31 @@ local plugins = {
   },
 
   -- SuperMaven (copilot faster, good quality and cheaper alternative) {{{
-   -- [[ SuperMaven
-   --{
-    --"supermaven-inc/supermaven-nvim",
-    --event = "VeryLazy",
-    --config = function()
-       --require("supermaven-nvim").setup({
-           --keymaps = {
-               --accept_suggestion = "<C-y>",
-               --clear_suggestion = "<C-e>",
-               --accept_word = "<C-l>",
+   --[[ SuperMaven
+   {
+    "supermaven-inc/supermaven-nvim",
+    event = "VeryLazy",
+    config = function()
+       require("supermaven-nvim").setup({
+           keymaps = {
+               accept_suggestion = "<C-y>",
+               clear_suggestion = "<C-e>",
+               accept_word = "<C-l>",
+           },
+           --ignore_filetypes = { "cpp", },
+           --color = {
+               --suggestion_color = "#ffffff",
+               --cterm = 244,
            --},
-           ----ignore_filetypes = { "cpp", },
-           ----color = {
-               ----suggestion_color = "#ffffff",
-               ----cterm = 244,
-           ----},
-           ----log_level = "info", -- set to "off" to disable logging completely
-           ----disable_inline_completion = false, -- disables inline completion for use with cmp
-           ----disable_keymaps = false, -- disables built in keymaps for more manual control
-           ----condition = function()
-               ----return false
-           ----end -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
-       --})
-    --end,
-   --},
+           --log_level = "info", -- set to "off" to disable logging completely
+           --disable_inline_completion = false, -- disables inline completion for use with cmp
+           --disable_keymaps = false, -- disables built in keymaps for more manual control
+           --condition = function()
+               --return false
+           --end -- condition to check for stopping supermaven, `true` means to stop supermaven when the condition is true.
+       })
+    end,
+   },
   --]]
 
     -- }}}
@@ -375,135 +375,73 @@ local plugins = {
 --]] -- Copilot
 
   -- Gp AI {{{
-   -- [[ GpAI
-   --{
-    --"robitx/gp.nvim",
-    --event = "VeryLazy",
-    --dependencies = {
-      --"MunifTanjim/nui.nvim",
-    --},
-    --opts = function()
-      --return require "custom.configs.gp" -- use return required
-    --end,
-    --config = function(_, opts)
-      --require("gp").setup(opts)
-      ----require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
-    --end,
-   --},
+   --[[ GpAI
+   {
+    "robitx/gp.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+    },
+    opts = function()
+      return require "custom.configs.gp" -- use return required
+    end,
+    config = function(_, opts)
+      require("gp").setup(opts)
+      --require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    end,
+   },
   --]]
 
     -- }}}
   -- CodeCompanion {{{
-  -- [[ CodeCompanion
-  --{
-    ---- https://github.com/olimorris/codecompanion.nvim
-    --"olimorris/codecompanion.nvim",
-    --dependencies = {
-      --"nvim-lua/plenary.nvim",
-      --"nvim-treesitter/nvim-treesitter",
-      --"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
-      --"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
-      --{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
-      --{ "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
-    --},
-    ----config = true,
-    ---- lazy = false,
-    --event = "VeryLazy",
-    ---- set this if you want to always pull the latest change
-    ----version = false,
-    --config = function()
-        --require('codecompanion').setup({
-            --opts = {
-                --language = "English" -- Default is "English"
-            --},
-            --strategies = {
-                --chat = {
-                    --adapter = "anthropic",
-                    ----adapter = "gemini",
-                    ----adapter = "openai",
-                --},
-                --inline = {
-                    --adapter = "copilot",
-                    ----adapter = "openai",
-                --},
-                ---- Note: If Copilot chat doesn't works maybe can be enabled using this system from https://github.com/Robitx/gp.nvim :
-                        ----copilot = {
-                        ----endpoint = "https://api.githubcopilot.com/chat/completions",
-                        ----secret = {
-                            ----"bash",
-                            ----"-c",
-                            ----"cat ~/.config/github-copilot/hosts.json | sed -e 's/.*oauth_token...//;s/\".*//'",
-                        ----},
-                    ----},
-            --},
-        --})
-    --end,
-    ----opts = {}
-    ----config = function()
-        ----require("codecompanion").setup()
-    ----end,
-    ----opts = function()
-      ----return require "custom.configs.avante"
-    ----end,
-    ----config = function(_, opts)
-      ----require("avante").setup(opts)
-      ------ require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
-    ----end,
-  --},
-  --]]
-
-    -- }}}
-  -- Parrot {{{
-  -- [[ Parrot
-  --{
-    --"frankroeder/parrot.nvim",
-    --dependencies = {
-      --"ibhagwan/fzf-lua",
-      --"nvim-lua/plenary.nvim"
-    --},
-    ---- lazy = false,
-    --event = "VeryLazy",
-    ---- set this if you want to always pull the latest change
+  --[[ CodeCompanion
+  {
+    -- https://github.com/olimorris/codecompanion.nvim
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+      "nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+      { "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
+      { "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
+    },
+    --config = true,
+    -- lazy = false,
+    event = "VeryLazy",
+    -- set this if you want to always pull the latest change
     --version = false,
+    config = function()
+        require('codecompanion').setup({
+            opts = {
+                language = "English" -- Default is "English"
+            },
+            strategies = {
+                chat = {
+                    adapter = "anthropic",
+                    --adapter = "gemini",
+                    --adapter = "openai",
+                },
+                inline = {
+                    adapter = "copilot",
+                    --adapter = "openai",
+                },
+                -- Note: If Copilot chat doesn't works maybe can be enabled using this system from https://github.com/Robitx/gp.nvim :
+                        --copilot = {
+                        --endpoint = "https://api.githubcopilot.com/chat/completions",
+                        --secret = {
+                            --"bash",
+                            --"-c",
+                            --"cat ~/.config/github-copilot/hosts.json | sed -e 's/.*oauth_token...//;s/\".*//'",
+                        --},
+                    --},
+            },
+        })
+    end,
+    --opts = {}
     --config = function()
-        --require("parrot").setup {
-            --providers = {
-                --anthropic = { api_key = os.getenv "ANTHROPIC_API_KEY" },
-                --gemini = { api_key = os.getenv "GEMINI_API_KEY" },
-                --groq = { api_key = os.getenv "GROQ_API_KEY" },
-                --mistral = { api_key = os.getenv "MISTRAL_API_KEY" },
-                --pplx = { api_key = os.getenv "PERPLEXITY_API_KEY" },
-                --ollama = {},  -- Empty provider, no API key required
-                --openai = { api_key = os.getenv "OPENAI_API_KEY" },
-                --github = { api_key = os.getenv "GITHUB_TOKEN" },
-                --nvidia = { api_key = os.getenv "NVIDIA_API_KEY" },
-                --xai = { api_key = os.getenv "XAI_API_KEY" },
-            --},
-        --}
+        --require("codecompanion").setup()
     --end,
-    ----opts = {}
-    ----config = function()
-        ----require("parrot").setup()
-    ----end,
-    ----opts = function()
-      ----return require "custom.configs.avante"
-    ----end,
-    ----config = function(_, opts)
-      ----require("avante").setup(opts)
-      ------ require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
-    ----end,
-  --},
-  --]]
-
-    -- }}}
-  -- Avante {{{
-  -- [[ Avante
-  --{
-    --"yetone/avante.nvim",
-    ---- lazy = false,
-    --event = "VeryLazy",
-    ---- set this if you want to always pull the latest change
-    --version = false,
     --opts = function()
       --return require "custom.configs.avante"
     --end,
@@ -511,44 +449,106 @@ local plugins = {
       --require("avante").setup(opts)
       ---- require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
     --end,
-    ---- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    --build = "make",
-    ---- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
-    --dependencies = {
-      --"nvim-treesitter/nvim-treesitter",
-      --"stevearc/dressing.nvim",
-      --"nvim-lua/plenary.nvim",
-      --"MunifTanjim/nui.nvim",
-      ----- The below dependencies are optional,
-      --"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
-      --"zbirenbaum/copilot.lua", -- for providers='copilot'
-      --{
-        ---- support for image pasting
-        --"HakonHarnes/img-clip.nvim",
-        --event = "VeryLazy",
-        --opts = {
-          ---- recommended settings
-          --default = {
-            --embed_image_as_base64 = false,
-            --prompt_for_file_name = false,
-            --drag_and_drop = {
-              --insert_mode = true,
-            --},
-            ---- required for Windows users
-            --use_absolute_path = true,
-          --},
-        --},
-      --},
-      --{
-        ---- Make sure to set this up properly if you have lazy=true
-        --'MeanderingProgrammer/render-markdown.nvim',
-        --opts = {
-          --file_types = { "markdown", "Avante" },
-        --},
-        --ft = { "markdown", "Avante" },
-      --},
-    --},
-  --},
+  },
+  --]]
+
+    -- }}}
+  -- Parrot {{{
+  --[[ Parrot
+  {
+    "frankroeder/parrot.nvim",
+    dependencies = {
+      "ibhagwan/fzf-lua",
+      "nvim-lua/plenary.nvim"
+    },
+    -- lazy = false,
+    event = "VeryLazy",
+    -- set this if you want to always pull the latest change
+    version = false,
+    config = function()
+        require("parrot").setup {
+            providers = {
+                anthropic = { api_key = os.getenv "ANTHROPIC_API_KEY" },
+                gemini = { api_key = os.getenv "GEMINI_API_KEY" },
+                groq = { api_key = os.getenv "GROQ_API_KEY" },
+                mistral = { api_key = os.getenv "MISTRAL_API_KEY" },
+                pplx = { api_key = os.getenv "PERPLEXITY_API_KEY" },
+                ollama = {},  -- Empty provider, no API key required
+                openai = { api_key = os.getenv "OPENAI_API_KEY" },
+                github = { api_key = os.getenv "GITHUB_TOKEN" },
+                nvidia = { api_key = os.getenv "NVIDIA_API_KEY" },
+                xai = { api_key = os.getenv "XAI_API_KEY" },
+            },
+        }
+    end,
+    --opts = {}
+    --config = function()
+        --require("parrot").setup()
+    --end,
+    --opts = function()
+      --return require "custom.configs.avante"
+    --end,
+    --config = function(_, opts)
+      --require("avante").setup(opts)
+      ---- require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    --end,
+  },
+  --]]
+
+    -- }}}
+  -- Avante {{{
+  --[[ Avante
+  {
+    "yetone/avante.nvim",
+    -- lazy = false,
+    event = "VeryLazy",
+    -- set this if you want to always pull the latest change
+    version = false,
+    opts = function()
+      return require "custom.configs.avante"
+    end,
+    config = function(_, opts)
+      require("avante").setup(opts)
+      -- require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    end,
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      "zbirenbaum/copilot.lua", -- for providers='copilot'
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            use_absolute_path = true,
+          },
+        },
+      },
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
   --]]
   --[[
       Usage:
@@ -590,7 +590,7 @@ local plugins = {
   },
   --]]
   --[[
-      Usage: 
+      Usage:
         <C-u> [Both] to submit.
         <C-y> [Both] to copy/yank last answer.
         <C-o> [Both] Toggle settings window.
