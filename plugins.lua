@@ -345,6 +345,57 @@ local plugins = {
   -- }}}
 --]] -- Copilot
   
+  -- CodeCompanion {{{
+  -- [[ CodeCompanion
+  --{
+    ---- https://github.com/olimorris/codecompanion.nvim
+    --"olimorris/codecompanion.nvim",
+    --dependencies = {
+      --"nvim-lua/plenary.nvim",
+      --"nvim-treesitter/nvim-treesitter",
+      --"hrsh7th/nvim-cmp", -- Optional: For using slash commands and variables in the chat buffer
+      --"nvim-telescope/telescope.nvim", -- Optional: For using slash commands
+      --{ "MeanderingProgrammer/render-markdown.nvim", ft = { "markdown", "codecompanion" } }, -- Optional: For prettier markdown rendering
+      --{ "stevearc/dressing.nvim", opts = {} }, -- Optional: Improves `vim.ui.select`
+    --},
+    ----config = true,
+    ---- lazy = false,
+    --event = "VeryLazy",
+    ---- set this if you want to always pull the latest change
+    ----version = false,
+    --config = function()
+        --require('codecompanion').setup({
+            --opts = {
+                --language = "English" -- Default is "English"
+            --},
+            --strategies = {
+                --chat = {
+                    --adapter = "anthropic",
+                    ----adapter = "gemini",
+                    ----adapter = "openai",
+                --},
+                --inline = {
+                    --adapter = "copilot",
+                    ----adapter = "openai",
+                --},
+            --},
+        --})
+    --end,
+    ----opts = {}
+    ----config = function()
+        ----require("codecompanion").setup()
+    ----end,
+    ----opts = function()
+      ----return require "custom.configs.avante"
+    ----end,
+    ----config = function(_, opts)
+      ----require("avante").setup(opts)
+      ------ require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    ----end,
+  --},
+  --]]
+
+    -- }}}
   -- Parrot {{{
   -- [[ Parrot
   --{
