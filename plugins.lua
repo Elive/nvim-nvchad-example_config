@@ -323,7 +323,7 @@ local plugins = {
     end,
     opts = {
       completion = {
-        -- autocomplete = true, -- elivim: show or not show the autocompletion menu of cmp while typing
+        autocomplete = true, -- elivim: show or not show the autocompletion menu of cmp while typing
       },
       sources = {
         -- NOTE: important to keep the same list and values as the original conf (+copilot entry) if you want to use the same features, so this is not a merge but a replacement
