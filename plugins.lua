@@ -614,7 +614,7 @@ local plugins = {
   --   enabled = true,  -- turn to false to disable it entirely
   --   opts = {
   --     completion = {
-  --       autocomplete = true, -- elivim: copilot: uncomment to not show the cmp autocompletion menu automatically while typing
+  --       autocomplete = true, -- elivim: show or not show the autocompletion menu of cmp while typing
   --     },
   --       require("core.utils").load_mappings "cmp"
   --   },
