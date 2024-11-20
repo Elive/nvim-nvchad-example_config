@@ -374,6 +374,25 @@ local plugins = {
   -- }}}
 --]] -- Copilot
 
+  -- Gp AI {{{
+   -- [[ GpAI
+   --{
+    --"robitx/gp.nvim",
+    --event = "VeryLazy",
+    --dependencies = {
+      --"MunifTanjim/nui.nvim",
+    --},
+    --opts = function()
+      --return require "custom.configs.gp" -- use return required
+    --end,
+    --config = function(_, opts)
+      --require("gp").setup(opts)
+      ----require("base46").load_all_highlights() -- this is needed in order to avoid the Diff show with wrong colors
+    --end,
+   --},
+  --]]
+
+    -- }}}
   -- CodeCompanion {{{
   -- [[ CodeCompanion
   --{
