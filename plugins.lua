@@ -628,6 +628,10 @@ local plugins = {
   --   "SirVer/ultisnips",
   --   init = function()
   --     require("core.utils").lazy_load "ultisnips"
+  --     -- python3 provider must be enabled:
+  --     vim.g["loaded_python3_provider"] = nil
+  --     -- vim.cmd("runtime python3_provider") -- probably not needed to enable provider
+  --     -- settings:
   --     -- require("core.utils").load_mappings "ultisnips"
   --     vim.g.UltiSnipsEditSplit = "horizontal"
   --     vim.g.UltiSnipsExpandTrigger = "<c-j>" -- expand snippets using this hotkey
