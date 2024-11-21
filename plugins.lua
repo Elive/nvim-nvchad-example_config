@@ -565,7 +565,7 @@ local plugins = {
       cc choose cursor
       ]x move to previous conflict
       [x movemove to next conflict
-      [[ conflictjump to previous codeblocks (results window)
+      [ [ conflictjump to previous codeblocks (results window)
       ] ] windowjump to next codeblocks (results windows)
     --]]
 
