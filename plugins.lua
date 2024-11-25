@@ -382,6 +382,17 @@ local plugins = {
     dependencies = {
       "MunifTanjim/nui.nvim",
     },
+    init = function()
+    --   -- load special mappings that also shows up on which-key
+      require("core.utils").load_mappings "gp"
+      local wk = require("which-key")
+      wk.register({
+        ['<C-g>'] = { name = "Gp", },
+        -- { prefix = "<leader>" }
+        ['<C-g>g'] = { name = "generate into new ..", mode = { "n", "v", "i" }, },
+        ['<C-g>w'] = { name = "Whisper", mode = { "n", "v", "i" }, },
+      })
+    end,
     opts = function()
       return require "custom.configs.gp" -- use return required
     end,

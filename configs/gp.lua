@@ -29,15 +29,15 @@ return {
             --endpoint = "https://$URL.openai.azure.com/openai/deployments/{{model}}/chat/completions",
             --secret = os.getenv("AZURE_API_KEY"),
         --},
-        --copilot = {
-            --disable = false,
+        copilot = {
+            disable = false,
             --endpoint = "https://api.githubcopilot.com/chat/completions",
             --secret = {
                 --"bash",
                 --"-c",
                 --"cat ~/.config/github-copilot/hosts.json | sed -e 's/.*oauth_token...//;s/\".*//'",
             --},
-        --},
+        },
         --ollama = {
             --disable = false,
             --endpoint = "http://localhost:11434/v1/chat/completions",
@@ -63,11 +63,11 @@ return {
             --endpoint = "https://api.anthropic.com/v1/messages",
             --secret = os.getenv("ANTHROPIC_API_KEY"),
         },
-        -- groq = {
-        --     disable = false,
-        --     endpoint = "https://api.groq.com/openai/v1/chat/completions",
-        --     secret = os.getenv("GROQ_API_KEY"),
-        -- },
+        groq = {
+            disable = false,
+            endpoint = "https://api.groq.com/openai/v1/chat/completions",
+            secret = os.getenv("GROQ_API_KEY"),
+        },
 
     },
 
@@ -86,15 +86,15 @@ return {
     --state_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/persisted",
 
     ---- default agent names set during startup, if nil last used agent is used
-    --default_command_agent = nil,
-    --default_chat_agent = nil,
+    default_command_agent = nil,
+    default_chat_agent = "ChatCopilot",
 
     -- default command agents (model + persona)
     -- name, model and system_prompt are mandatory fields
     -- to use agent for chat set chat = true, for command set command = true
     -- to remove some default agent completely set it like:
     -- agents = {  { name = "ChatGPT3-5", disable = true, }, ... },
-    --agents = {
+    agents = {
         --{
             --name = "ExampleDisabledAgent",
             --disable = true,
@@ -118,16 +118,17 @@ return {
             ---- system prompt (use this to specify the persona/role of the AI)
             --system_prompt = require("gp.defaults").chat_system_prompt,
         --},
-        --{
-            --provider = "copilot",
-            --name = "ChatCopilot",
-            --chat = true,
-            --command = false,
-            ---- string with model name or table with model name and parameters
-            --model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
-            ---- system prompt (use this to specify the persona/role of the AI)
-            --system_prompt = require("gp.defaults").chat_system_prompt,
-        --},
+        {
+            provider = "copilot",
+            name = "ChatCopilot",
+            chat = true,
+            command = false,
+            -- string with model name or table with model name and parameters
+            -- model = { model = "gpt-4o", temperature = 1.1, top_p = 1 },
+            model = { model = "", temperature = nil, top_p = nil },
+            -- system prompt (use this to specify the persona/role of the AI)
+            system_prompt = require("gp.defaults").chat_system_prompt,
+        },
         --{
             --provider = "googleai",
             --name = "ChatGemini",
@@ -218,16 +219,17 @@ return {
             ---- system prompt (use this to specify the persona/role of the AI)
             --system_prompt = "Please return ONLY code snippets.\nSTART AND END YOUR ANSWER WITH:\n\n```",
         --},
-        --{
-            --provider = "copilot",
-            --name = "CodeCopilot",
-            --chat = false,
-            --command = true,
-            ---- string with model name or table with model name and parameters
-            --model = { model = "gpt-4o", temperature = 0.8, top_p = 1, n = 1 },
-            ---- system prompt (use this to specify the persona/role of the AI)
-            --system_prompt = require("gp.defaults").code_system_prompt,
-        --},
+        {
+            provider = "copilot",
+            name = "CodeCopilot",
+            chat = true,
+            command = true,
+            -- string with model name or table with model name and parameters
+            -- model = { model = "gpt-4o", temperature = 0.8, top_p = 1, n = 1 },
+            model = { model = "", temperature = nil, top_p = nil, n = nil },
+            -- system prompt (use this to specify the persona/role of the AI)
+            system_prompt = require("gp.defaults").code_system_prompt,
+        },
         --{
             --provider = "googleai",
             --name = "CodeGemini",
@@ -246,24 +248,24 @@ return {
             --model = { model = "llama-3.1-sonar-small-128k-chat", temperature = 0.8, top_p = 1 },
             --system_prompt = require("gp.defaults").code_system_prompt,
         --},
-        --{
-            --provider = "anthropic",
-            --name = "CodeClaude-3-5-Sonnet",
-            --chat = false,
-            --command = true,
-            ---- string with model name or table with model name and parameters
-            --model = { model = "claude-3-5-sonnet-20240620", temperature = 0.8, top_p = 1 },
-            --system_prompt = require("gp.defaults").code_system_prompt,
-        --},
-        --{
-            --provider = "anthropic",
-            --name = "CodeClaude-3-Haiku",
-            --chat = false,
-            --command = true,
-            ---- string with model name or table with model name and parameters
-            --model = { model = "claude-3-haiku-20240307", temperature = 0.8, top_p = 1 },
-            --system_prompt = require("gp.defaults").code_system_prompt,
-        --},
+        {
+            provider = "anthropic",
+            name = "CodeClaude-3-5-Sonnet",
+            chat = false,
+            command = true,
+            -- string with model name or table with model name and parameters
+            model = { model = "claude-3-5-sonnet-20241022", temperature = 0.8, top_p = 1 },
+            system_prompt = require("gp.defaults").code_system_prompt,
+        },
+        {
+            provider = "anthropic",
+            name = "CodeClaude-3-Haiku",
+            chat = false,
+            command = true,
+            -- string with model name or table with model name and parameters
+            model = { model = "claude-3-haiku-20241022", temperature = 0.8, top_p = 1 },
+            system_prompt = require("gp.defaults").code_system_prompt,
+        },
         --{
             --provider = "ollama",
             --name = "CodeOllamaLlama3.1-8B",
@@ -279,27 +281,27 @@ return {
             ---- system prompt (use this to specify the persona/role of the AI)
             --system_prompt = require("gp.defaults").code_system_prompt,
         --},
-    --       {
-    --         provider = "groq",
-    --         name = "GroqLLAMA_3.1-70b-versatile",
-    --         chat = true,
-    --         command = true,
-    --         -- string with model name or table with model name and parameters
-    --         model = { model = "llama-3.1-70b-versatile", temperature = 0.8, top_p = 1 },
-    --         system_prompt = "You are an AI helping the user with code and other tasks\n\n"
-    --           .. "Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n",
-    --       },
-    --       {
-    --         provider = "groq",
-    --         name = "GroqLLAMA_3.2-11b-text-preview",
-    --         chat = true,
-    --         command = true,
-    --         -- string with model name or table with model name and parameters
-    --         model = { model = "llama-3.2-11b-text-preview", temperature = 0.8, top_p = 1 },
-    --         system_prompt = "Given a task or problem, please provide a concise and well-formatted solution or answer.\n\n"
-    --           .. "Please keep your response within a code snippet, and avoid unnecessary commentary.\n",
-    --       },
-    -- },
+          {
+            provider = "groq",
+            name = "GroqLLAMA_3.1-70b-versatile",
+            chat = true,
+            command = true,
+            -- string with model name or table with model name and parameters
+            model = { model = "llama-3.1-70b-versatile", temperature = 0.8, top_p = 1 },
+            system_prompt = "You are an AI helping the user with code and other tasks\n\n"
+              .. "Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n",
+          },
+          {
+            provider = "groq",
+            name = "GroqLLAMA_3.2-11b-text-preview",
+            chat = true,
+            command = true,
+            -- string with model name or table with model name and parameters
+            model = { model = "llama-3.2-11b-text-preview", temperature = 0.8, top_p = 1 },
+            system_prompt = "Given a task or problem, please provide a concise and well-formatted solution or answer.\n\n"
+              .. "Please keep your response within a code snippet, and avoid unnecessary commentary.\n",
+          },
+    },
 
     -- directory for storing chat files
     --chat_dir = vim.fn.stdpath("data"):gsub("/$", "") .. "/gp/chats",
